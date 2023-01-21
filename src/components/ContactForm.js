@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 
+const backgroundImage =
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674338067/photo_2023-01-21_09-37-15_tk6ihx.jpg'
+
 export default function ContactForm() {
 	const [email, setEmail] = useState('')
 	const [phone, setPhone] = useState('')
@@ -37,7 +40,7 @@ export default function ContactForm() {
 	}
 
 	return (
-		<div className='container-fluid pt-5 pb-5 mb-5'>
+		<div className='container-fluid pt-5 pb-5 mb-5 formContainer'>
 			<form
 				className='container'
 				style={{ width: '60%' }}

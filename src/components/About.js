@@ -1,15 +1,18 @@
+const profileImage =
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674336354/photo_2023-01-21_16-25-02_xkp7kn.jpg'
+
 export default function About() {
 	return (
-		<div className='container mt-5'>
-			<h1>About me</h1>
+		<div className='container mt-lg-5' style={{ zIndex: 100 }}>
 			<div className='row'>
 				<div className='col-sm mb-5'>
-					<img
-						className='img-fluid d-block rounded w-5'
-						src='https://res.cloudinary.com/dsdwopq7c/image/upload/v1674226888/photo_2023-01-20_10-01-00_o8og9m.jpg'
-						alt='profile image'
-						style={{ maxWidth: '60%' }}
-					/>
+					<div className='text-center d-block pt-4 pt-md-0'>
+						<img
+							className='img-fluid rounded'
+							src={profileImage}
+							alt='profile image'
+						/>
+					</div>
 				</div>
 				<div className='col-sm'>
 					<p>
