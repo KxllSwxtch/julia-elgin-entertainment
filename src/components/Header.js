@@ -2,7 +2,7 @@ const headerImage =
 	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674336412/ec4841185ae8e32d044644c12084c648_utjjdp.png'
 
 const logoImage =
-	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674339653/Beige_Glasses_Clowns_and_Party_Needs_Logo-2_jdynvl.png'
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674342233/Beige_Glasses_Clowns_and_Party_Needs_Logo-4_rvtjeb.png'
 
 export default function Header() {
 	return (
