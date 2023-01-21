@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser'
 
 export default function ContactForm() {
 	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
 	const [name, setName] = useState('')
 	const [age, setAge] = useState(1)
 	const [nGuests, setNGuests] = useState(1)
@@ -31,14 +32,12 @@ export default function ContactForm() {
 			balloonTwist,
 			photosOnMagnet,
 			photographer,
+			phone,
 		})
 	}
 
 	return (
-		<div
-			className='container-fluid pt-5 pb-5 mb-5'
-			style={{ background: '#30a14e', color: '#ffffff' }}
-		>
+		<div className='container-fluid pt-5 pb-5 mb-5'>
 			<form
 				className='container'
 				style={{ width: '60%' }}
@@ -54,6 +53,19 @@ export default function ContactForm() {
 						className='form-control'
 						aria-describedby='emailHelp'
 						placeholder='Enter email'
+						required
+					/>
+				</div>
+				<div className='form-group mb-4'>
+					<label htmlFor='phoneInput'>Phone Number</label>
+					<input
+						type='tel'
+						pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+						value={phone}
+						onChange={(event) => setPhone(event.target.value)}
+						className='form-control'
+						aria-describedby='phoneHelp'
+						placeholder='Enter phone (e.g. 111-444-5555)'
 						required
 					/>
 				</div>
