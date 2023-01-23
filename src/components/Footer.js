@@ -1,11 +1,13 @@
 const instagramLink = 'https://instagram.com/yuliatheclown?igshid=ZDdkNTZiNTM='
 
-export default function Footer() {
+export default function Footer({ currentLanguage }) {
 	return (
 		<footer className='container mb-5'>
 			<div className='row'>
 				<div className='col'>
-					<h1 className='pb-3'>My contacts</h1>
+					<h1 className='pb-3'>
+						{currentLanguage === 'EN' ? 'My contacts' : 'Мои Контакты'}
+					</h1>
 				</div>
 				<div className='col'>
 					<h3 className='mb-3'>

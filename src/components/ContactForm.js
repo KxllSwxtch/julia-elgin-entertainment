@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 
-const backgroundImage =
-	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674338067/photo_2023-01-21_09-37-15_tk6ihx.jpg'
-
-export default function ContactForm() {
+export default function ContactForm({ currentLanguage }) {
 	const [email, setEmail] = useState('')
 	const [phone, setPhone] = useState('')
 	const [name, setName] = useState('')
@@ -20,8 +17,6 @@ export default function ContactForm() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-
-		// TODO: FINISH
 
 		console.log({
 			email,
@@ -41,26 +36,30 @@ export default function ContactForm() {
 
 	return (
 		<div className='container-fluid pt-5 pb-5 mb-5 formContainer'>
-			<form
-				className='container'
-				style={{ width: '60%' }}
-				onSubmit={handleSubmit}
-			>
-				<h1 className='mb-3'>Contact Me for Quotes</h1>
+			<form className='container' onSubmit={handleSubmit}>
+				<h1 className='mb-3'>
+					{currentLanguage === 'EN' ? 'Contact Me' : 'Напишите мне напрямую'}
+				</h1>
 				<div className='form-group mb-4'>
-					<label htmlFor='emailInput'>Email address</label>
+					<label htmlFor='emailInput'>
+						{currentLanguage === 'EN' ? 'Email' : 'Почта'}
+					</label>
 					<input
 						type='email'
 						value={email}
 						onChange={(event) => setEmail(event.target.value)}
 						className='form-control'
 						aria-describedby='emailHelp'
-						placeholder='Enter email'
+						placeholder={
+							currentLanguage === 'EN' ? 'Enter Email' : 'Введите Почту'
+						}
 						required
 					/>
 				</div>
 				<div className='form-group mb-4'>
-					<label htmlFor='phoneInput'>Phone Number</label>
+					<label htmlFor='phoneInput'>
+						{currentLanguage === 'EN' ? 'Phone Number' : 'Номер Телефона'}
+					</label>
 					<input
 						type='tel'
 						pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
@@ -68,68 +67,106 @@ export default function ContactForm() {
 						onChange={(event) => setPhone(event.target.value)}
 						className='form-control'
 						aria-describedby='phoneHelp'
-						placeholder='Enter phone (e.g. 111-444-5555)'
+						placeholder={
+							currentLanguage === 'EN'
+								? 'Enter phone (e.g. 111-444-5555)'
+								: 'Введите номер телефона (111-444-5555)'
+						}
 						required
 					/>
 				</div>
 				<div className='form-group mb-4'>
-					<label htmlFor='nameInput'>Your Name</label>
+					<label htmlFor='nameInput'>
+						{currentLanguage === 'EN' ? 'Your Name' : 'Ваше Имя'}
+					</label>
 					<input
 						type='text'
 						value={name}
 						onChange={(event) => setName(event.target.value)}
 						className='form-control'
-						placeholder='Enter name'
+						placeholder={
+							currentLanguage === 'EN' ? 'Enter name' : 'Введите Имя'
+						}
 						required
 					/>
 				</div>
 				<div className='form-group mb-4'>
-					<label htmlFor='ageInput'>How old is the birthday person?</label>
+					<label htmlFor='ageInput'>
+						{currentLanguage === 'EN'
+							? 'How old is the birthday person?'
+							: 'Сколько лет имениннику?'}
+					</label>
 					<input
 						type='number'
 						value={age}
 						onChange={(event) => setAge(event.target.value)}
 						className='form-control'
-						placeholder='Enter age'
+						placeholder={
+							currentLanguage === 'EN' ? 'Enter age' : 'Введите возраст'
+						}
 						min={1}
 					/>
 				</div>
 				<div className='form-group mb-4'>
 					<label htmlFor='guestsInput'>
-						How many guests will be at the party?
+						{currentLanguage === 'EN'
+							? 'How many guests will be at the party?'
+							: 'Сколько человек будет на вечеринке?'}
 					</label>
 					<input
 						type='number'
 						value={nGuests}
 						onChange={(event) => setNGuests(event.target.value)}
 						className='form-control'
-						placeholder='Enter number of guests'
+						placeholder={
+							currentLanguage === 'EN'
+								? 'Enter number of guests'
+								: 'Введите количество гостей'
+						}
 						min={1}
 					/>
 				</div>
 				<div className='form-group mb-4'>
-					<label htmlFor='partyLocationInput'>Where is the party?</label>
+					<label htmlFor='partyLocationInput'>
+						{currentLanguage === 'EN'
+							? 'Where is the party?'
+							: 'Адрес мероприятия'}
+					</label>
 					<input
 						type='text'
 						value={location}
 						onChange={(event) => setLocation(event.target.value)}
 						className='form-control'
-						placeholder='Enter the address'
+						placeholder={
+							currentLanguage === 'EN' ? 'Enter the address' : 'Введите адрес'
+						}
 					/>
 				</div>
 				<div className='form-group mb-4'>
-					<label htmlFor='themeInput'>What is the theme of the party?</label>
+					<label htmlFor='themeInput'>
+						{currentLanguage === 'EN'
+							? 'What is the theme of the party?'
+							: 'Тема Мероприятия?'}
+					</label>
 					<input
 						type='text'
 						value={theme}
 						onChange={(event) => setTheme(event.target.value)}
 						className='form-control'
-						placeholder='Enter the theme'
+						placeholder={
+							currentLanguage === 'EN' ? 'Enter the theme' : 'Введите тематику'
+						}
 					/>
 				</div>
-				<h2 className='mt-3 d-block'>Any additional services?</h2>
+				<h2 className='mt-3 d-block'>
+					{currentLanguage === 'EN'
+						? 'Any additional services?'
+						: 'Дополнительные Услуги?'}
+				</h2>
 				<div className='form-check mb-4'>
-					<label htmlFor='facePaint'>Face Painting</label>
+					<label htmlFor='facePaint'>
+						{currentLanguage === 'EN' ? 'Face Painting' : 'Аквагрим'}
+					</label>
 					<input
 						type='checkbox'
 						className='form-check-input'
@@ -137,7 +174,9 @@ export default function ContactForm() {
 					/>
 				</div>
 				<div className='form-check mb-4'>
-					<label htmlFor='cakeBake'>Cake Baking</label>
+					<label htmlFor='cakeBake'>
+						{currentLanguage === 'EN' ? 'Cake Baking' : 'Торт'}
+					</label>
 					<input
 						type='checkbox'
 						className='form-check-input'
@@ -145,7 +184,9 @@ export default function ContactForm() {
 					/>
 				</div>
 				<div className='form-check mb-4'>
-					<label htmlFor='balloonTwist'>Balloon Twist</label>
+					<label htmlFor='balloonTwist'>
+						{currentLanguage === 'EN' ? 'Balloon Twist' : 'Шары'}
+					</label>
 					<input
 						type='checkbox'
 						className='form-check-input'
@@ -153,7 +194,9 @@ export default function ContactForm() {
 					/>
 				</div>
 				<div className='form-check mb-4'>
-					<label htmlFor='photosOnMagnet'>Photos on magnet</label>
+					<label htmlFor='photosOnMagnet'>
+						{currentLanguage === 'EN' ? 'Photos on magnet' : 'Фото на магните'}
+					</label>
 					<input
 						type='checkbox'
 						className='form-check-input'
@@ -161,16 +204,20 @@ export default function ContactForm() {
 					/>
 				</div>
 				<div className='form-check mb-4'>
-					<label htmlFor='photographer'>Photographer</label>
+					<label htmlFor='photographer'>
+						{currentLanguage === 'EN' ? 'Photographer' : 'Фотограф'}
+					</label>
 					<input
 						type='checkbox'
 						className='form-check-input'
 						onChange={(event) => setPhotographer(event.target.checked)}
 					/>
 				</div>
-				<button type='submit' className='btn btn-primary'>
-					Submit
-				</button>
+				<div>
+					<button type='submit' className='btn btn-success w-100'>
+						{currentLanguage === 'EN' ? 'Submit' : 'Отправить'}
+					</button>
+				</div>
 			</form>
 		</div>
 	)
