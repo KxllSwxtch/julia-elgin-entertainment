@@ -14,11 +14,11 @@ const images = [
 
 export default function Header() {
 	return (
-		<div className='container-fluid' style={{ padding: 0 }}>
-			<Carousel className='d-flex' variant='dark'>
+		<div className='container-fluid mb-5' style={{ padding: 0 }}>
+			<Carousel className='d-flex h-100' variant='dark' indicators={false}>
 				{images.map((url, idx) => (
-					<Carousel.Item interval={1000} key={idx} style={{ height: '20%' }}>
-						<img className='d-block w-100' src={url} alt='image' />
+					<Carousel.Item interval={1000} key={idx}>
+						<img className='d-block w-100 h-auto' src={url} alt='image' />
 					</Carousel.Item>
 				))}
 			</Carousel>
