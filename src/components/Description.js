@@ -13,7 +13,9 @@ export default function Description({ currentLanguage }) {
 		<Container className='container mb-5'>
 			<div className='row'>
 				<div className='col'>
-					<p className='lead'>{currentText}</p>
+					<DescriptionText className='lead rounded'>
+						{currentText}
+					</DescriptionText>
 				</div>
 				<div className='col-sm text-center'>
 					<img
@@ -29,8 +31,17 @@ export default function Description({ currentLanguage }) {
 
 const Container = styled.div`
 	margin-top: 5%;
+	background-image: url('https://res.cloudinary.com/dsdwopq7c/image/upload/v1674578819/724-7247106_confetti-party-celebrate-parties-celebrations_chp0yd.png');
+	background-size: contain;
+	background-position: top left;
 
 	@media screen and (max-width: 576px) {
 		margin-top: 50px !important;
 	}
+`
+const DescriptionText = styled.p`
+	background: #dcd9d4;
+	padding: 2rem;
+	-webkit-box-shadow: 0px 10px 11px -10px #000000;
+	box-shadow: 0px 10px 11px -10px #000000;
 `

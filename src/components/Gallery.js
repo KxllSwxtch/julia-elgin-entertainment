@@ -1,4 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel'
+import styled from 'styled-components'
 
 const images = [
 	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674226888/photo_2023-01-20_10-00-57_vkddcg.jpg',
@@ -15,13 +16,23 @@ const images = [
 export default function Header() {
 	return (
 		<div className='container-fluid mb-5' style={{ padding: 0 }}>
-			<Carousel className='d-flex h-100' variant='dark' indicators={false}>
+			<StyledCarousel className='d-flex' variant='dark' indicators={false}>
 				{images.map((url, idx) => (
-					<Carousel.Item interval={1000} key={idx}>
+					<StyledCarousel.Item interval={1000} key={idx}>
 						<img className='d-block w-100 h-auto' src={url} alt='image' />
-					</Carousel.Item>
+					</StyledCarousel.Item>
 				))}
-			</Carousel>
+			</StyledCarousel>
 		</div>
 	)
 }
+
+const StyledCarousel = styled(Carousel)`
+	width: 60%;
+	margin: 0 auto;
+	border-radius: 3px !important;
+
+	@media screen and (max-width: 576px) {
+		width: 100%;
+	}
+`

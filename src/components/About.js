@@ -1,4 +1,5 @@
 import i18n from 'i18next'
+import styled from 'styled-components'
 import { useTranslation, initReactI18next } from 'react-i18next'
 
 i18n.use(initReactI18next).init({
@@ -28,7 +29,7 @@ export default function About({ currentLanguage }) {
 	const { t } = useTranslation()
 
 	return (
-		<div className='container mt-lg-5' style={{ zIndex: 100 }}>
+		<MainContainer className='container mt-lg-5' style={{ zIndex: 100 }}>
 			<div className='row'>
 				<div className='col-sm mb-5'>
 					<div className='text-center d-block pt-4 pt-md-0'>
@@ -40,11 +41,24 @@ export default function About({ currentLanguage }) {
 					</div>
 				</div>
 				<div className='col-sm'>
-					<p className='lead'>
+					<AboutText className='lead'>
 						{currentLanguage === 'EN' ? t('aboutMe') : t('обоМне')}
-					</p>
+					</AboutText>
 				</div>
 			</div>
-		</div>
+		</MainContainer>
 	)
 }
+
+const MainContainer = styled.div`
+	background-image: url('https://res.cloudinary.com/dsdwopq7c/image/upload/v1674599852/271-2711777_birthday-celebration-background-png-birthday-balloons-render_wcce0t.png');
+	background-size: cover;
+	background-position: top;
+`
+
+const AboutText = styled.p`
+	background: #dcd9d4;
+	padding: 2rem;
+	-webkit-box-shadow: 0px 10px 11px -10px #000000;
+	box-shadow: 0px 10px 11px -10px #000000;
+`

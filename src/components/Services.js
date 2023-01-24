@@ -5,7 +5,7 @@ const birthdayPackageURL =
 
 export default function Services() {
 	return (
-		<div className='container-fluid' style={{ padding: 0 }}>
+		<ContainerDiv className='container-fluid' style={{ padding: 0 }}>
 			<MainContainer>
 				<Img
 					src='https://res.cloudinary.com/dsdwopq7c/image/upload/v1674323795/photo_2023-01-21_12-32-02_fxszge.jpg'
@@ -22,7 +22,8 @@ export default function Services() {
 				<div className='row mt-4'>
 					<div className='col'></div>
 					<h1>
-						Packages <span className='text-muted text-inline'>we offer</span>
+						<span style={{ paddingLeft: 20 }}>Packages</span>{' '}
+						<span className='text-muted text-inline'>we offer</span>
 					</h1>
 					<div className='col mt-2'>
 						<img
@@ -33,9 +34,15 @@ export default function Services() {
 					</div>
 				</div>
 			</PackagesContainer>
-		</div>
+		</ContainerDiv>
 	)
 }
+
+const ContainerDiv = styled.div`
+	background-image: url('https://res.cloudinary.com/dsdwopq7c/image/upload/v1674599279/confetti-frame-for-birthday-background-golden-party-ribbon-and-confetti-falling-golden-confetti-frame-on-a-transparent-background-carnival-and-birthday-celebration-elements-free-png_uyzgmo.webp');
+	background-position: top center;
+	background-size: cover;
+`
 
 const MainContainer = styled.div`
 	padding: 0 10px;
