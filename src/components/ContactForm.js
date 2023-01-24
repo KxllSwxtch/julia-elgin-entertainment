@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 
 export default function ContactForm({ currentLanguage }) {
+	const form = useRef()
+
+	const [isSending, setIsSending] = useState(false)
 	const [email, setEmail] = useState('')
 	const [phone, setPhone] = useState('')
 	const [name, setName] = useState('')
@@ -18,7 +21,7 @@ export default function ContactForm({ currentLanguage }) {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 
-		console.log({
+		const data = {
 			email,
 			name,
 			age,
@@ -31,12 +34,28 @@ export default function ContactForm({ currentLanguage }) {
 			photosOnMagnet,
 			photographer,
 			phone,
-		})
+		}
+
+		setIsSending(true)
+		setTimeout(() => {
+			emailjs
+				.sendForm(
+					'service_04mge52',
+					'template_6y5skjj',
+					form.current,
+					'piDnuSmexMygPvB4J'
+				)
+				.then((result) => {
+					console.log(result.text)
+					setIsSending(false)
+				})
+				.catch((error) => console.log(error.text))
+		}, 1500)
 	}
 
 	return (
 		<div className='container-fluid pt-5 pb-5 mb-5 formContainer'>
-			<form className='container' onSubmit={handleSubmit}>
+			<form ref={form} className='container' onSubmit={handleSubmit}>
 				<h1 className='mb-3'>
 					{currentLanguage === 'EN' ? 'Contact Me' : 'Напишите мне напрямую'}
 				</h1>
@@ -46,6 +65,7 @@ export default function ContactForm({ currentLanguage }) {
 					</label>
 					<input
 						type='email'
+						name='from_email'
 						value={email}
 						onChange={(event) => setEmail(event.target.value)}
 						className='form-control'
@@ -64,6 +84,7 @@ export default function ContactForm({ currentLanguage }) {
 						type='tel'
 						pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
 						value={phone}
+						name='from_phone'
 						onChange={(event) => setPhone(event.target.value)}
 						className='form-control'
 						aria-describedby='phoneHelp'
@@ -82,6 +103,7 @@ export default function ContactForm({ currentLanguage }) {
 					<input
 						type='text'
 						value={name}
+						name='from_name'
 						onChange={(event) => setName(event.target.value)}
 						className='form-control'
 						placeholder={
@@ -99,6 +121,7 @@ export default function ContactForm({ currentLanguage }) {
 					<input
 						type='number'
 						value={age}
+						name='from_age'
 						onChange={(event) => setAge(event.target.value)}
 						className='form-control'
 						placeholder={
@@ -116,6 +139,7 @@ export default function ContactForm({ currentLanguage }) {
 					<input
 						type='number'
 						value={nGuests}
+						name='from_guests'
 						onChange={(event) => setNGuests(event.target.value)}
 						className='form-control'
 						placeholder={
@@ -134,6 +158,7 @@ export default function ContactForm({ currentLanguage }) {
 					</label>
 					<input
 						type='text'
+						name='from_location'
 						value={location}
 						onChange={(event) => setLocation(event.target.value)}
 						className='form-control'
@@ -150,6 +175,7 @@ export default function ContactForm({ currentLanguage }) {
 					</label>
 					<input
 						type='text'
+						name='from_theme'
 						value={theme}
 						onChange={(event) => setTheme(event.target.value)}
 						className='form-control'
@@ -171,6 +197,7 @@ export default function ContactForm({ currentLanguage }) {
 						type='checkbox'
 						className='form-check-input'
 						onChange={(event) => setFacePainting(event.target.checked)}
+						name='from_facepaint'
 					/>
 				</div>
 				<div className='form-check mb-4'>
@@ -178,6 +205,7 @@ export default function ContactForm({ currentLanguage }) {
 						{currentLanguage === 'EN' ? 'Cake Baking' : 'Торт'}
 					</label>
 					<input
+						name='from_cakebake'
 						type='checkbox'
 						className='form-check-input'
 						onChange={(event) => setCakeBake(event.target.checked)}
@@ -189,6 +217,7 @@ export default function ContactForm({ currentLanguage }) {
 					</label>
 					<input
 						type='checkbox'
+						name='from_balloon'
 						className='form-check-input'
 						onChange={(event) => setBalloonTwist(event.target.checked)}
 					/>
@@ -200,6 +229,7 @@ export default function ContactForm({ currentLanguage }) {
 					<input
 						type='checkbox'
 						className='form-check-input'
+						name='from_photomagnet'
 						onChange={(event) => setPhotosOnMagnet(event.target.checked)}
 					/>
 				</div>
@@ -210,11 +240,16 @@ export default function ContactForm({ currentLanguage }) {
 					<input
 						type='checkbox'
 						className='form-check-input'
+						name='from_photographer'
 						onChange={(event) => setPhotographer(event.target.checked)}
 					/>
 				</div>
 				<div>
-					<button type='submit' className='btn btn-success w-100'>
+					<button
+						disabled={isSending}
+						type='submit'
+						className='btn btn-success w-100'
+					>
 						{currentLanguage === 'EN' ? 'Submit' : 'Отправить'}
 					</button>
 				</div>

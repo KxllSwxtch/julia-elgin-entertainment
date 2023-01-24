@@ -5,6 +5,7 @@ import {
 	Services,
 	ContactForm,
 	Footer,
+	Description,
 } from './components'
 import i18n from 'i18next'
 import './App.css'
@@ -29,9 +30,10 @@ export default function App() {
 				changeLanguage={changeLanguage}
 				currentLanguage={currentLanguage}
 			/>
-			<About currentLanguage={currentLanguage} />
+			<Description currentLanguage={currentLanguage} />
 			<Gallery />
 			<Services />
+			<About currentLanguage={currentLanguage} />
 			<ContactForm currentLanguage={currentLanguage} />
 			<Footer currentLanguage={currentLanguage} />
 		</>

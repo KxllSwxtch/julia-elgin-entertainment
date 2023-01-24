@@ -16,7 +16,7 @@ export default function Footer({ currentLanguage }) {
 						<i className='bi bi-phone'></i> 902-471-1601
 					</h2>
 					<h2 className='mb-3'>
-						<i className='bi bi-envelope'></i> Yulia.clown@gmail.com
+						<i className='bi bi-envelope'></i> yulia.clown@gmail.com
 					</h2>
 					<h2 className='mb-3'>
 						<i className='bi bi-instagram'></i>{' '}

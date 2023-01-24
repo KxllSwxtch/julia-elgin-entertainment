@@ -22,11 +22,7 @@ export default function Header({ changeLanguage, currentLanguage }) {
 			<div className='text-center pt-lg-5'>
 				<StyledLogo src={logoImage} alt='logo' width='40%' />
 				<div>
-					<StyledBtn
-						className='btn btn-success'
-						onClick={changeLanguage}
-						style={{ float: 'right' }}
-					>
+					<StyledBtn className='btn btn-success' onClick={changeLanguage}>
 						{currentLanguage}
 					</StyledBtn>
 				</div>
@@ -36,6 +32,7 @@ export default function Header({ changeLanguage, currentLanguage }) {
 }
 
 const StyledBtn = styled.button`
+	float: left;
 	@media screen and (max-width: 576px) {
 		float: left !important;
 	}

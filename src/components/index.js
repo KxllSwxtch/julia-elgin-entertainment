@@ -4,4 +4,5 @@ import Header from './Header'
 import Services from './Services'
 import ContactForm from './ContactForm'
 import Footer from './Footer'
-export { Gallery, About, Header, Services, ContactForm, Footer }
+import Description from './Description'
+export { Gallery, About, Header, Services, ContactForm, Footer, Description }

@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+const birthdayPackageURL =
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674577096/photo_2023-01-24_11-18-03_pu1oui.jpg'
+
 export default function Services() {
 	return (
 		<div className='container-fluid' style={{ padding: 0 }}>
@@ -15,6 +18,21 @@ export default function Services() {
 					className='w-50 rounded secondImage'
 				/>
 			</MainContainer>
+			<PackagesContainer className='container mb-4'>
+				<div className='row mt-4'>
+					<div className='col'></div>
+					<h1>
+						Packages <span className='text-muted text-inline'>we offer</span>
+					</h1>
+					<div className='col mt-2'>
+						<img
+							className='img-fluid w-25 rounded bPackageImage pb-4'
+							src={birthdayPackageURL}
+							alt='birthday package'
+						/>
+					</div>
+				</div>
+			</PackagesContainer>
 		</div>
 	)
 }
@@ -24,6 +42,16 @@ const MainContainer = styled.div`
 
 	.firstImage {
 		margin-bottom: 40px;
+	}
+`
+
+const PackagesContainer = styled.div`
+	.bPackageImage {
+		@media screen and (max-width: 576px) {
+			width: 70% !important;
+			margin: 0 auto !important;
+			display: block;
+		}
 	}
 `
 
