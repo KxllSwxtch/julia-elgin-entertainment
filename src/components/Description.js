@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const imageUrl =
-	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674572722/photo_2023-01-24_10-05-00_y2fuxy.jpg'
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675089756/photo_2023-01-20_09-24-12_asohco.jpg'
 
 export default function Description({ currentLanguage }) {
 	const currentText =
@@ -16,13 +16,6 @@ export default function Description({ currentLanguage }) {
 					<DescriptionText className='lead rounded'>
 						{currentText}
 					</DescriptionText>
-				</div>
-				<div className='col-sm text-center'>
-					<img
-						className='img-fluid rounded-circle w-75'
-						src={imageUrl}
-						alt='image'
-					/>
 				</div>
 			</div>
 		</Container>
@@ -41,7 +34,15 @@ const Container = styled.div`
 `
 const DescriptionText = styled.p`
 	background: #dcd9d4;
-	padding: 2rem;
+	padding: 4rem;
 	-webkit-box-shadow: 0px 10px 11px -10px #000000;
 	box-shadow: 0px 10px 11px -10px #000000;
+	line-height: 40px;
+	width: 60%;
+
+	@media screen and (max-width: 576px) {
+		width: 100%;
+		padding: 2rem;
+		line-height: 2;
+	}
 `

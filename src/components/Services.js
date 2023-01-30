@@ -1,7 +1,15 @@
+import Carousel from 'react-bootstrap/Carousel'
 import styled from 'styled-components'
 
 const birthdayPackageURL =
 	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674577096/photo_2023-01-24_11-18-03_pu1oui.jpg'
+
+const cakesImages = [
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675090072/photo_2023-01-30_09-47-24_dubpgt.jpg',
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675090072/photo_2023-01-30_09-47-30_qon3pt.jpg',
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675090072/photo_2023-01-30_09-47-32_kssjqi.jpg',
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675090072/photo_2023-01-30_09-47-35_k3stom.jpg',
+]
 
 export default function Services() {
 	return (
@@ -27,8 +35,14 @@ export default function Services() {
 					</h1>
 					<div className='col mt-2'>
 						<img
+							style={{ marginRight: 20 }}
 							className='img-fluid w-25 rounded bPackageImage pb-4'
 							src={birthdayPackageURL}
+							alt='birthday package'
+						/>
+						<img
+							className='img-fluid w-25 rounded pb-4'
+							src={cakesImages[0]}
 							alt='birthday package'
 						/>
 					</div>
@@ -66,4 +80,8 @@ const Img = styled.img`
 	@media screen and (max-width: 576px) {
 		width: 100% !important;
 	}
+`
+
+const StyledCarousel = styled(Carousel)`
+	width: 25%;
 `

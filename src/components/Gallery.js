@@ -11,6 +11,9 @@ const images = [
 	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674339073/photo_2023-01-21_09-37-45_ptmrri.jpg',
 	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674339073/photo_2023-01-21_09-37-15_2_br7ydx.jpg',
 	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1674338067/photo_2023-01-21_09-37-15_tk6ihx.jpg',
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675091418/photo_2_2023-01-30_10-09-35_cbwqud.jpg',
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675091418/photo_1_2023-01-30_10-09-35_qutakw.jpg',
+	'https://res.cloudinary.com/dsdwopq7c/image/upload/v1675091418/photo_5_2023-01-30_10-09-35_pdrv7t.jpg',
 ]
 
 export default function Header() {
@@ -19,7 +22,7 @@ export default function Header() {
 			<StyledCarousel className='d-flex' variant='dark' indicators={false}>
 				{images.map((url, idx) => (
 					<StyledCarousel.Item interval={1000} key={idx}>
-						<img className='d-block w-100 h-auto' src={url} alt='image' />
+						<img className='d-block w-100' src={url} alt='image' />
 					</StyledCarousel.Item>
 				))}
 			</StyledCarousel>
@@ -31,6 +34,17 @@ const StyledCarousel = styled(Carousel)`
 	width: 60%;
 	margin: 0 auto;
 	border-radius: 3px !important;
+
+	.carousel-inner {
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+
+		@media screen and (min-width: 992px) {
+			height: 500px;
+		}
+	}
 
 	@media screen and (max-width: 576px) {
 		width: 100%;
