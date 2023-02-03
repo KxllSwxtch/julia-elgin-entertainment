@@ -119,8 +119,10 @@ export default function ContactForm({ currentLanguage }) {
 							: 'Сколько лет имениннику?'}
 					</label>
 					<input
+						required
 						type='number'
 						value={age}
+						defaultValue=''
 						name='from_age'
 						onChange={(event) => setAge(event.target.value)}
 						className='form-control'

@@ -39,6 +39,7 @@ const DescriptionText = styled.p`
 	box-shadow: 0px 10px 11px -10px #000000;
 	line-height: 40px;
 	width: 60%;
+	font-family: 'Comic Neue', cursive;
 
 	@media screen and (max-width: 576px) {
 		width: 100%;
